@@ -1,0 +1,12 @@
+.name {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  gap: 0.25rem;
+}
