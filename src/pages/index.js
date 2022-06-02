@@ -2,6 +2,7 @@ import fsPromises from 'fs/promises'
 import path from 'path'
 import Container from '/src/components/container'
 import Header from '/src/components/header'
+import Search from '/src/components/search'
 import Recents from '/src/components/recents'
 import Grid from '/src/components/grid'
 import Category from '/src/components/category'
@@ -12,6 +13,7 @@ export default function Home({ bookmarks }) {
   return (
     <Container>
       <Header />
+      <Search />
       <Recents />
       <Grid>
         {groups.map(({ name, items }) => (
