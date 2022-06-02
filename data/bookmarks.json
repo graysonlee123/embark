@@ -1,0 +1,68 @@
+{
+  "groups": [
+    {
+      "name": "Productivity",
+      "items": [
+        {
+          "name": "Gmail",
+          "url": "https://gmail.com/"
+        },
+        {
+          "name": "Google Drive",
+          "url": "https://drive.google.com/"
+        },
+        {
+          "name": "Notion",
+          "url": "https://notion.so/",
+          "blank": true
+        }
+      ]
+    },
+    {
+      "name": "Media",
+      "items": [
+        {
+          "name": "YouTube",
+          "url": "https://youtube.com/"
+        },
+        {
+          "name": "Netflix",
+          "url": "https://netflix.com/"
+        },
+        {
+          "name": "Dinsey+",
+          "url": "https://disneyplus.com/"
+        },
+        {
+          "name": "Plex",
+          "url": "https://plex.com/"
+        },
+        {
+          "name": "HBO Max",
+          "url": "https://hbomax.com/"
+        },
+        {
+          "name": "Hulu",
+          "url": "https://hulu.com/"
+        }
+      ]
+    },
+    {
+      "name": "Development",
+      "items": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/"
+        },
+        {
+          "name": "Google Domains",
+          "url": "https://domains.google/"
+        },
+        {
+          "name": "Netlify",
+          "url": "https://netlify.com/"
+        }
+      ]
+    }
+  ]
+}
