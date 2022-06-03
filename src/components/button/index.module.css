@@ -1,0 +1,14 @@
+.button {
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
