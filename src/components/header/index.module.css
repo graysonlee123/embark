@@ -1,0 +1,13 @@
+.wrapper {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  margin-block: 3rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .wrapper {
+    grid-template-columns: 1fr 16rem;
+    margin-block: 6rem;
+  }
+}

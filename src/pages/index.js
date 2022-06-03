@@ -1,26 +1,32 @@
 import fsPromises from 'fs/promises'
 import path from 'path'
+import Script from 'next/script'
 import Container from '/src/components/container'
 import Header from '/src/components/header'
-import Search from '/src/components/search'
 import Recents from '/src/components/recents'
 import Grid from '/src/components/grid'
-import Category from '/src/components/category'
+import Group from '/src/components/group'
 
 export default function Home({ bookmarks }) {
   const { groups } = bookmarks
 
   return (
-    <Container>
-      <Header />
-      <Search />
-      <Recents />
-      <Grid>
-        {groups.map(({ name, items }) => (
-          <Category name={name} items={items} key={name} />
-        ))}
-      </Grid>
-    </Container>
+    <>
+      <Container>
+        <Header />
+        <Recents />
+        <Grid>
+          {groups.map(({ name, items, icon }) => (
+            <Group name={name} items={items} icon={icon} key={name} />
+          ))}
+        </Grid>
+      </Container>
+      <Script
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        type="module"
+        strategy="lazyOnload"
+      />
+    </>
   )
 }
 

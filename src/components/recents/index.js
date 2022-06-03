@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { formatDistance } from 'date-fns'
 import { getRecentLinks } from '/src/scripts/utils'
 
 export default function Recents() {
@@ -16,7 +17,11 @@ export default function Recents() {
 
   return recents.map(({ url, timestamp }) => (
     <span key={url}>
-      {url} on {timestamp}
+      {url}{' '}
+      {formatDistance(timestamp, Date.now(), {
+        includeSeconds: true,
+        addSuffix: true,
+      })}
     </span>
   ))
 }

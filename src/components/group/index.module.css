@@ -1,0 +1,19 @@
+.wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  flex-shrink: 0;
+}

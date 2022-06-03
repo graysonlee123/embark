@@ -1,11 +1,22 @@
 import Link from '/src/components/link'
+import Icon from '/src/components/icon'
 import styles from './index.module.css'
 
-export default function Category({ name, items }) {
+export default function Group({ name, items, icon }) {
   if (items)
     return (
       <div>
-        <h2 className={styles.name}>{name}</h2>
+        <div className={styles.flex}>
+          <div className={styles.icon}>
+            <Icon name={icon} />
+          </div>
+          <div>
+            <h2>{name}</h2>
+            <small>
+              {items.length} item{items.length > 1 ? 's' : null}
+            </small>
+          </div>
+        </div>
         {items ? (
           <div className={styles.grid}>
             {items.map(({ name, url, blank }) => (
