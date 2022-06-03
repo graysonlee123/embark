@@ -2,9 +2,9 @@ import { RECENTS_LS_KEY } from './constants'
 
 /**
  * Updates the local storage recents list and remove old links.
- * @param {URL} url The new link to add.
+ * @param {Object} data The new link to add.
  */
-function updateLocalRecents(url) {
+function updateLocalRecents({ text, url, blank }) {
   buildLocalStorage()
 
   const json = JSON.parse(localStorage.getItem(RECENTS_LS_KEY))
@@ -18,7 +18,7 @@ function updateLocalRecents(url) {
   /**
    * Add the new data to the beginning of the recents.
    */
-  json.unshift({ timestamp: Date.now(), url })
+  json.unshift({ timestamp: Date.now(), text, url, blank })
 
   /**
    * Check for length, and remove extras.
@@ -49,9 +49,8 @@ function buildLocalStorage() {
  * @return {Array|null}
  */
 function getRecentLinks() {
-  return localStorage.getItem(RECENTS_LS_KEY) === null
-    ? null
-    : JSON.parse(localStorage.getItem(RECENTS_LS_KEY))
+  const data = localStorage.getItem(RECENTS_LS_KEY)
+  return data === null ? null : JSON.parse(data)
 }
 
 export { updateLocalRecents, getRecentLinks }

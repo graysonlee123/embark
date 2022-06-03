@@ -2,6 +2,10 @@
   --clr-white: 0 0% 100%;
   --clr-body: 0 0% 20%;
   --clr-accent: 16 100% 66%;
+
+  --spacing-sm: clamp(2rem, 10vmin, 4rem);
+  --spacing-md: clamp(3rem, 15vmin, 6rem);
+  --spacing-lg: clamp(4rem, 15vmin, 8rem);
 }
 
 *,

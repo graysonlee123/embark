@@ -1,15 +1,16 @@
 import { updateLocalRecents } from '/src/scripts/utils'
-import styles from './index.module.css'
-
-function handleClick(e) {
-  e.preventDefault()
-
-  // window.open(e.currentTarget.href, e.currentTarget.target)
-
-  updateLocalRecents(e.currentTarget.href)
-}
 
 export default function Link({ text, url, blank }) {
+  /**
+   * Handle the click event.
+   * @param {ClickEvent} e The click event.
+   */
+  function handleClick(e) {
+    e.preventDefault()
+    updateLocalRecents({ text, url, blank })
+    // window.open(e.currentTarget.href, e.currentTarget.target)
+  }
+
   return (
     <a onClick={handleClick} href={url} target={blank ? '_blank' : '_self'}>
       {text}
