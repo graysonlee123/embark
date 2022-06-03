@@ -1,6 +1,7 @@
 import fsPromises from 'fs/promises'
 import path from 'path'
 import Script from 'next/script'
+import SiteHead from '/src/components/site-head'
 import Container from '/src/components/container'
 import Header from '/src/components/header'
 import Recents from '/src/components/recents'
@@ -12,6 +13,7 @@ export default function Home({ bookmarks }) {
 
   return (
     <>
+      <SiteHead />
       <Container>
         <Header />
         <Recents />
