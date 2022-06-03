@@ -1,4 +1,4 @@
-import { RECENTS_LS_KEY } from './constants'
+import { RECENTS_LS_KEY, RECENTS_COUNT } from './constants'
 
 /**
  * Updates the local storage recents list and remove old links.
@@ -23,8 +23,8 @@ function updateLocalRecents({ text, url, blank }) {
   /**
    * Check for length, and remove extras.
    */
-  if (json.length > 6) {
-    json.splice(6)
+  if (json.length > RECENTS_COUNT) {
+    json.splice(RECENTS_COUNT)
   }
 
   /**
