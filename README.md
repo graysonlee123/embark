@@ -1,6 +1,6 @@
 # Embark
 
-![Screenshot](/screenshot.png?raw=true 'screenshot')
+![Screenshot](/screenshot.jpeg?raw=true 'screenshot')
 
 Get to where you need to go. Embark is your bookmarks bar, re-imagined. ([Demo](https://ggantek-embark.vercel.app/))
 
