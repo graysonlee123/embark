@@ -8,7 +8,11 @@ export default function Search() {
     return () => removeEventListener('keydown', handleKeyDown)
   })
 
-  const handleKeyDown = (e) => {
+  /**
+   * Handles the keydown event for focusing the search form.
+   * @param {object} e The keydown event.
+   */
+  function handleKeyDown(e) {
     if (e.key === '/') {
       document.getElementById('search').focus()
 
