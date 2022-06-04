@@ -71,3 +71,11 @@ small {
   font-size: 0.875rem;
   color: hsl(var(--clr-body) / 60%);
 }
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0.25em 0.75em;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  background-color: hsl(var(--clr-body) / 10%);
+}
