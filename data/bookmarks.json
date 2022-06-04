@@ -21,6 +21,7 @@
     },
     {
       "name": "Media",
+      "icon": "videocam-outline",
       "items": [
         {
           "name": "YouTube",
