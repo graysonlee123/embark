@@ -1,15 +1,13 @@
 {
   "name": "embark",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "repository": "https://github.com/graysonlee123/embark",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "docker:build-arm": "docker build -t ggantek/embark .",
-    "docker:build": "docker build --platform linux/amd64 -t ggantek/embark .",
-    "docker:run": "docker run --name embark -p 3000:3000 -v ~/Desktop/my-data/:/app/data/ -dit ggantek/embark",
-    "docker:run-arm": "docker run --name embark-arm -p 3000:3000 -v ~/Desktop/my-data/:/app/data/ -dit ggantek/embark:arm"
+    "start": "next start"
   },
   "dependencies": {
     "date-fns": "^2.28.0",
