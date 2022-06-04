@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "docker:build-arm": "docker build --platform linux/arm64 -t ggantek/embark .",
-    "docker:build": "docker build -t ggantek/embark .",
+    "docker:build-arm": "docker build -t ggantek/embark .",
+    "docker:build": "docker build --platform linux/amd64 -t ggantek/embark .",
     "docker:run": "docker run --name embark -p 3000:3000 -v ~/Desktop/my-data/:/app/data/ -dit ggantek/embark",
     "docker:run-arm": "docker run --name embark-arm -p 3000:3000 -v ~/Desktop/my-data/:/app/data/ -dit ggantek/embark:arm"
   },
