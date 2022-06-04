@@ -2,7 +2,7 @@
 
 ![Screenshot](/screenshot.jpeg?raw=true 'screenshot')
 
-Get to where you need to go. Embark is your bookmarks bar, re-imagined. ([Demo](https://ggantek-embark.vercel.app/))
+Get to where you need to go. Embark is your bookmarks bar, re-imagined. ([Static demo](https://ggantek-embark.vercel.app/))
 
 The purpose of this project is to allow anyone to host a customized and enhanced bookmarks page. It can be configured as the "new tab" page in your browser.
 
