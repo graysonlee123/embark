@@ -8,7 +8,7 @@ import styles from './index.module.css'
 function Wrapper({ children, button, update }) {
   /**
    * Handles the clearing of recent links.
-   * @param {HTMLClickEvent} e The click event.
+   * @param {object} e The click event.
    */
   function handleClear(e) {
     localStorage.clear(RECENTS_LS_KEY)

@@ -3,12 +3,12 @@ import { updateLocalRecents } from '/src/scripts/utils'
 export default function Link({ text, url, blank }) {
   /**
    * Handle the click event.
-   * @param {ClickEvent} e The click event.
+   * @param {object} e The click event.
    */
   function handleClick(e) {
     e.preventDefault()
     updateLocalRecents({ text, url, blank })
-    // window.open(e.currentTarget.href, e.currentTarget.target)
+    window.open(e.currentTarget.href, e.currentTarget.target)
   }
 
   return (

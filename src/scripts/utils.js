@@ -2,7 +2,7 @@ import { RECENTS_LS_KEY, RECENTS_COUNT } from './constants'
 
 /**
  * Updates the local storage recents list and remove old links.
- * @param {Object} data The new link to add.
+ * @param {object} data The new link to add.
  */
 function updateLocalRecents({ text, url, blank }) {
   buildLocalStorage()
@@ -46,7 +46,7 @@ function buildLocalStorage() {
 
 /**
  * Gets the recent links.
- * @return {Array|null}
+ * @return {array|null}
  */
 function getRecentLinks() {
   const data = localStorage.getItem(RECENTS_LS_KEY)
