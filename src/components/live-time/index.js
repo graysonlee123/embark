@@ -14,7 +14,7 @@ export default function LiveTime() {
   if (time)
     return (
       <small>
-        Today is {format(time, 'MMMM do, y')}. It's {format(time, 'h:m:saaa')}.
+        Today is {format(time, 'MMMM do, y')}. It's {format(time, 'h:mmaaa')}.
       </small>
     )
 }
