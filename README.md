@@ -72,3 +72,7 @@ You can optionally add `"blank": true` to an item to open it in a new tab by def
 ## Updating
 
 To add, change, edit, or remove links in Embark, edit your `bookmarks.json` file. Then, refresh the site twice or wait some time. On the first refresh, NextJS triggers a function to rebuild the page with the new data.
+
+## Changelog
+
+- 1.1.0: Added TypeScript, ESLint, and Prettier
