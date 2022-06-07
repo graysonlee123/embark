@@ -53,7 +53,7 @@ To modify your bookmarks, all you need to do is create and edit your `bookmarks.
       "icon": "briefcase-outline",
       "items": [
         {
-          "name": "Gmail",
+          "label": "Gmail",
           "url": "https://gmail.com/",
           "blank": true
         },
