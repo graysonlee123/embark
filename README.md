@@ -79,4 +79,4 @@ To add, change, edit, or remove links in Embark, edit your `bookmarks.json` file
 
 ## Contributing
 
-See the (contributing)[/CONTRIBUTING.md] notes for details about contributing.
+See the [contributing](/CONTRIBUTING.md) notes for details about contributing.
