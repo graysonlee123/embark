@@ -5,9 +5,6 @@
 /.pnp
 .pnp.js
 
-# testing
-/coverage
-
 # next.js
 /.next/
 /out/
@@ -30,3 +27,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# other
+tsconfig.tsbuildinfo
