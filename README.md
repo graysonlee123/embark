@@ -75,7 +75,8 @@ To add, change, edit, or remove links in Embark, edit your `bookmarks.json` file
 
 ## Changelog
 
-- 1.1.0: Added TypeScript, ESLint, and Prettier
+- `1.0.0`: Initial release
+- `1.1.0`: Added TypeScript, ESLint, and Prettier
 
 ## Contributing
 
