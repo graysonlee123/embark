@@ -5,15 +5,15 @@
       "icon": "briefcase-outline",
       "items": [
         {
-          "name": "Gmail",
+          "label": "Gmail",
           "url": "https://gmail.com/"
         },
         {
-          "name": "Google Drive",
+          "label": "Google Drive",
           "url": "https://drive.google.com/"
         },
         {
-          "name": "Notion",
+          "label": "Notion",
           "url": "https://notion.so/",
           "blank": true
         }
@@ -24,27 +24,27 @@
       "icon": "videocam-outline",
       "items": [
         {
-          "name": "YouTube",
+          "label": "YouTube",
           "url": "https://youtube.com/"
         },
         {
-          "name": "Netflix",
+          "label": "Netflix",
           "url": "https://netflix.com/"
         },
         {
-          "name": "Dinsey+",
+          "label": "Dinsey+",
           "url": "https://disneyplus.com/"
         },
         {
-          "name": "Plex",
+          "label": "Plex",
           "url": "https://plex.com/"
         },
         {
-          "name": "HBO Max",
+          "label": "HBO Max",
           "url": "https://hbomax.com/"
         },
         {
-          "name": "Hulu",
+          "label": "Hulu",
           "url": "https://hulu.com/"
         }
       ]
@@ -53,15 +53,15 @@
       "name": "Development",
       "items": [
         {
-          "name": "GitHub",
+          "label": "GitHub",
           "url": "https://github.com/"
         },
         {
-          "name": "Google Domains",
+          "label": "Google Domains",
           "url": "https://domains.google/"
         },
         {
-          "name": "Netlify",
+          "label": "Netlify",
           "url": "https://netlify.com/"
         }
       ]

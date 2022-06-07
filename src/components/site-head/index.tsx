@@ -1,6 +1,7 @@
+import { FunctionComponent } from 'react'
 import Head from 'next/head'
 
-export default function SiteHead() {
+const SiteHead: FunctionComponent = () => {
   return (
     <Head>
       <title>Embark</title>
@@ -28,3 +29,5 @@ export default function SiteHead() {
     </Head>
   )
 }
+
+export { SiteHead }

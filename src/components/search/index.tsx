@@ -1,8 +1,9 @@
+import { FunctionComponent } from 'react'
 import { useEffect, useState } from 'react'
 import styles from './index.module.css'
 
-export default function Search() {
-  const [input, setInput] = useState('')
+const Search: FunctionComponent = () => {
+  const [input, setInput] = useState<string>('')
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
     return () => removeEventListener('keydown', handleKeyDown)
@@ -10,14 +11,18 @@ export default function Search() {
 
   /**
    * Handles the keydown event for focusing the search form.
-   * @param {object} e The keydown event.
+   * @param {KeyboardEvent} e The keydown event.
    */
-  function handleKeyDown(e) {
+  function handleKeyDown(e: KeyboardEvent): void {
     if (e.key === '/') {
-      document.getElementById('search').focus()
+      const search: null | HTMLElement = document.getElementById('search')
 
-      if (document.activeElement !== e.target) {
-        e.preventDefault()
+      if (search !== null) {
+        search.focus()
+
+        if (document.activeElement !== e.target) {
+          e.preventDefault()
+        }
       }
     }
   }
@@ -43,3 +48,5 @@ export default function Search() {
     </form>
   )
 }
+
+export { Search }

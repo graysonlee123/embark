@@ -1,18 +1,31 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, FunctionComponent, ReactNode } from 'react'
+import { LocalStorageEmbarkLink } from '../../../types'
 import { formatDistance } from 'date-fns'
-import { getRecentLinks } from '/src/scripts/utils'
-import { RECENTS_LS_KEY } from '/src/scripts/constants'
-import Button from '/src/components/button'
+import { getRecentLinks } from '../../scripts/utils'
+import { RECENTS_LS_KEY } from '../../scripts/constants'
+import { Button } from '../button'
 import styles from './index.module.css'
 
-function Wrapper({ children, button, update }) {
+interface WrapperProps {
+  children: ReactNode
+  button?: boolean
+  update?: Function
+}
+
+const Wrapper: FunctionComponent<WrapperProps> = ({
+  children,
+  button,
+  update,
+}) => {
   /**
    * Handles the clearing of recent links.
-   * @param {object} e The click event.
    */
-  function handleClear(e) {
-    localStorage.clear(RECENTS_LS_KEY)
-    update(null)
+  function handleClear() {
+    localStorage.removeItem(RECENTS_LS_KEY)
+
+    if (update !== undefined) {
+      update(null)
+    }
   }
 
   return (
@@ -20,7 +33,7 @@ function Wrapper({ children, button, update }) {
       <div className={styles.header}>
         <h2>Recents</h2>
         {button && (
-          <Button onClick={handleClear}>
+          <Button callback={handleClear}>
             <small>(clear)</small>
           </Button>
         )}
@@ -30,13 +43,19 @@ function Wrapper({ children, button, update }) {
   )
 }
 
-export default function Recents() {
-  const [recents, setRecents] = useState(null)
-  const [loading, setLoading] = useState(false)
+const Recents: FunctionComponent = () => {
+  const [recents, setRecents] = useState<null | LocalStorageEmbarkLink[]>(null)
+  const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     setLoading(true)
-    setRecents(getRecentLinks())
+
+    const recentLinks: LocalStorageEmbarkLink[] = getRecentLinks()
+
+    if (recentLinks !== null && recentLinks.length) {
+      setRecents(recentLinks)
+    }
+
     setLoading(false)
   }, [])
 
@@ -59,14 +78,14 @@ export default function Recents() {
   return (
     <Wrapper update={setRecents} button>
       <div className={styles.grid}>
-        {recents.map(({ text, url, blank, timestamp }) => (
+        {recents.map(({ label, url, blank, timestamp }) => (
           <a
             className={styles.item}
             href={url}
             target={blank ? '_blank' : '_self'}
             key={url}
           >
-            <span className={styles.title}>{text}</span>
+            <span className={styles.title}>{label}</span>
             <small>
               {formatDistance(timestamp, Date.now(), {
                 addSuffix: true,
@@ -78,3 +97,5 @@ export default function Recents() {
     </Wrapper>
   )
 }
+
+export { Recents }

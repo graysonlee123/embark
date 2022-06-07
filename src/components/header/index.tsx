@@ -1,8 +1,9 @@
-import LiveTime from '/src/components/live-time'
-import Search from '/src/components/search'
+import { FunctionComponent } from 'react'
+import { LiveTime } from '../live-time'
+import { Search } from '../search'
 import styles from './index.module.css'
 
-export default function Header() {
+const Header: FunctionComponent = () => {
   return (
     <div className={styles.wrapper}>
       <div>
@@ -17,3 +18,5 @@ export default function Header() {
     </div>
   )
 }
+
+export { Header }
