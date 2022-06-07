@@ -6,10 +6,12 @@ import { RECENTS_LS_KEY } from '../../scripts/constants'
 import { Button } from '../button'
 import styles from './index.module.css'
 
+type UpdateFunction = (value: null) => void
+
 interface WrapperProps {
   children: ReactNode
   button?: boolean
-  update?: Function
+  update?: UpdateFunction
 }
 
 const Wrapper: FunctionComponent<WrapperProps> = ({

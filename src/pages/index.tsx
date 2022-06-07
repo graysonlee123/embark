@@ -37,7 +37,7 @@ const Home: FunctionComponent<{ bookmarks: EmbarkBookmarks }> = ({
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const cwd: string = process.cwd()
   const filePath: string = path.join(cwd, 'data/bookmarks.json')
   const json: Buffer = await fsPromises.readFile(filePath)

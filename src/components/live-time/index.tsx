@@ -1,4 +1,4 @@
-import { FunctionComponent, SetStateAction } from 'react'
+import { FunctionComponent } from 'react'
 import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 
