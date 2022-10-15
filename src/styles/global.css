@@ -1,5 +1,6 @@
 :root {
   --clr--surface: 0 0% 100%;
+  --clr--surface--card: 0 0% 100%;
   --clr--body: 0 0% 20%;
   --clr--accent: 16 100% 66%;
 
@@ -10,8 +11,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --clr--surface: 214 78% 5%;
-    --clr--body: 214 80% 92%;
+    --clr--surface: 0 0% 2%;
+    --clr--surface--card: 0 0% 9%;
+    --clr--body: 16 10% 94%;
   }
 }
 
@@ -49,10 +51,18 @@ input[type='text'] {
   width: 100%;
   padding: 0.25em 0.75em;
   font: inherit;
-  color: inherit;
-  background: hsl(var(--clr--surface));
-  border: 2px solid currentColor;
+  color: hsl(var(--clr--body));
+  background: hsl(var(--clr--surface--card));
+  border: 2px solid hsl(var(--clr--body) / 40%);
   border-radius: 4px;
+}
+
+input[type='text']:focus {
+  outline: none;
+}
+
+input[type='text']:focus-visible {
+  border-color: hsl(var(--clr--accent));
 }
 
 h1,

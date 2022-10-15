@@ -1,6 +1,6 @@
 .anchor {
   padding: 0.75rem 1.25rem;
-  background-color: hsl(var(--clr--surface));
+  background-color: hsl(var(--clr--surface--card));
   border-radius: 4px;
   border: 2px solid currentColor;
 }
@@ -8,4 +8,10 @@
 .title {
   display: block;
   font-weight: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  .anchor {
+    border: none;
+  }
 }
