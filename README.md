@@ -31,6 +31,21 @@ $ docker run \
   ggantek/embark
 ```
 
+I prefer running the container with Docker Compose:
+
+```yaml
+version: '3'
+
+services:
+  embark:
+    image: ggantek/embark:latest
+    ports:
+      - <port>:3000
+    volumes:
+      - <data>:/app/data/
+    restart: unless-stopped
+```
+
 ### From source
 
 ```sh
@@ -75,8 +90,9 @@ To add, change, edit, or remove links in Embark, edit your `bookmarks.json` file
 
 ## Changelog
 
-- `1.0.0`: Initial release
+- `1.2.0`: Added dark mode and `bookmarks.json` checking.
 - `1.1.0`: Added TypeScript, ESLint, and Prettier
+- `1.0.0`: Initial release
 
 ## Contributing
 
