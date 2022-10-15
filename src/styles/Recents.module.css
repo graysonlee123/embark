@@ -1,5 +1,5 @@
 .wrapper {
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing--md);
 }
 
 .grid {
