@@ -1,4 +1,2 @@
-const RECENTS_LS_KEY: string = 'recents'
-const RECENTS_COUNT: number = 4
-
-export { RECENTS_LS_KEY, RECENTS_COUNT }
+export const RECENTS_LS_KEY = 'recents'
+export const RECENTS_COUNT = 4

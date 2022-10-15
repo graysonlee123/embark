@@ -1,70 +1,53 @@
-import { RECENTS_LS_KEY, RECENTS_COUNT } from './constants'
-import { EmbarkLink, LocalStorageEmbarkLink } from '../../types'
-
-/**
- * Adds to and updates the local storage recents list.
- * @param {EmbarkLink} link The new link to add.
- */
-function updateLocalRecents({ label, url, blank }: EmbarkLink): void {
-  buildLocalStorage()
-
-  const storage: string | null = localStorage.getItem(RECENTS_LS_KEY)
-
-  if (storage !== null) {
-    const json: LocalStorageEmbarkLink[] = JSON.parse(storage)
-    const existingIndex: number = json.findIndex(
-      (link: LocalStorageEmbarkLink): boolean => {
-        return link.url === url
-      }
-    )
-
-    /**
-     * Check for a duplicate, and remove it.
-     */
-    existingIndex > -1 && json.splice(existingIndex, 1)
-
-    /**
-     * Add the new data to the beginning of the recents.
-     */
-    const newLink: LocalStorageEmbarkLink = {
-      timestamp: Date.now(),
-      label,
-      url,
-      blank,
-    }
-    json.unshift(newLink)
-
-    /**
-     * Check for length, and remove extras.
-     */
-    if (json.length > RECENTS_COUNT) {
-      json.splice(RECENTS_COUNT)
-    }
-
-    localStorage.setItem(RECENTS_LS_KEY, JSON.stringify(json))
-  }
-}
+import { RECENTS_LS_KEY, RECENTS_COUNT } from '@scripts/constants'
 
 /**
  * Checks for a missing recents list in local storage.
  */
-function buildLocalStorage(): void {
-  const checkLocalStorage = localStorage.getItem(RECENTS_LS_KEY)
+export function initStorageLinks() {
+  const storage = localStorage.getItem(RECENTS_LS_KEY)
 
-  if (checkLocalStorage === null) {
-    const json: string[] = []
-    localStorage.setItem(RECENTS_LS_KEY, JSON.stringify(json))
+  if (storage === null) {
+    localStorage.setItem(RECENTS_LS_KEY, JSON.stringify([]))
   }
 }
 
 /**
- * Returns the links as an object, or null if nothing is found.
- * @returns {[] | LocalStorageEmbarkLink[]}
+ * Returns the links found from local storage.
+ *
+ * @returns The parsed storage, or an empty array if none are found.
  */
-function getRecentLinks(): LocalStorageEmbarkLink[] {
-  const data: string | null = localStorage.getItem(RECENTS_LS_KEY)
-
-  return data === null ? [] : JSON.parse(data)
+export function getStorageLinks() {
+  const storage = localStorage.getItem(RECENTS_LS_KEY)
+  return storage === null ? [] : (JSON.parse(storage) as EmbarkStorageLink[])
 }
 
-export { updateLocalRecents, getRecentLinks }
+/**
+ * Adds to the local storage recents list.
+ *
+ * @param link The new link to add.
+ */
+export function addStorageLink({ label, url, blank }: EmbarkLink) {
+  const storage = getStorageLinks()
+
+  if (storage.length === 0) {
+    initStorageLinks()
+  }
+
+  /** Filter out the link if it's already in the storage. */
+  const filter = storage.filter((link) => link.url !== url)
+
+  /** Add to the beginning of the recents. */
+  filter.unshift({
+    label,
+    url,
+    blank,
+    timestamp: Date.now(),
+  })
+
+  /** Check for length, and remove extras. */
+  if (filter.length > RECENTS_COUNT) {
+    filter.splice(RECENTS_COUNT)
+  }
+
+  localStorage.setItem(RECENTS_LS_KEY, JSON.stringify(filter))
+}

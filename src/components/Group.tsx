@@ -1,8 +1,6 @@
-import { FunctionComponent } from 'react'
-import { EmbarkLink } from '../../../types'
-import { Link } from '../link'
-import { Icon } from '../icon'
-import styles from './index.module.css'
+import { Link } from '@components/Link'
+import { Icon } from '@components/Icon'
+import styles from '@styles/Group.module.css'
 
 interface GroupProps {
   name: string
@@ -10,7 +8,7 @@ interface GroupProps {
   icon?: string
 }
 
-const Group: FunctionComponent<GroupProps> = ({ name, items, icon }) => {
+export function Group({ name, items, icon }: GroupProps) {
   return (
     <div>
       <div className={styles.flex}>
@@ -32,5 +30,3 @@ const Group: FunctionComponent<GroupProps> = ({ name, items, icon }) => {
     </div>
   )
 }
-
-export { Group }

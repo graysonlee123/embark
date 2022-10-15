@@ -1,28 +1,26 @@
-import { FunctionComponent } from 'react'
 import { useEffect, useState } from 'react'
-import styles from './index.module.css'
+import styles from '@styles/Search.module.css'
 
-const Search: FunctionComponent = () => {
+export function Search() {
   const [input, setInput] = useState<string>('')
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
     return () => removeEventListener('keydown', handleKeyDown)
-  })
+  }, [])
 
   /**
    * Handles the keydown event for focusing the search form.
-   * @param {KeyboardEvent} e The keydown event.
+   *
+   * @param e The keydown event.
    */
-  function handleKeyDown(e: KeyboardEvent): void {
+  function handleKeyDown(e: KeyboardEvent) {
     if (e.key === '/') {
-      const search: null | HTMLElement = document.getElementById('search')
+      const search = document.getElementById('search') as HTMLInputElement
+      search.focus()
 
-      if (search !== null) {
-        search.focus()
-
-        if (document.activeElement !== e.target) {
-          e.preventDefault()
-        }
+      /** If the user is focusing on a differnet element, prevent input. */
+      if (document.activeElement !== e.target) {
+        e.preventDefault()
       }
     }
   }
@@ -48,5 +46,3 @@ const Search: FunctionComponent = () => {
     </form>
   )
 }
-
-export { Search }

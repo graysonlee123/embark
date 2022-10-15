@@ -1,11 +1,10 @@
-import { FunctionComponent } from 'react'
-import styles from './index.module.css'
+import styles from '@styles/Icon.module.css'
 
 interface IconProps {
   name?: string
 }
 
-const Icon: FunctionComponent<IconProps> = ({ name = 'link-outline' }) => {
+export function Icon({ name = 'link-outline' }: IconProps) {
   return (
     <span className={styles.icon}>
       <i
@@ -16,5 +15,3 @@ const Icon: FunctionComponent<IconProps> = ({ name = 'link-outline' }) => {
     </span>
   )
 }
-
-export { Icon }
