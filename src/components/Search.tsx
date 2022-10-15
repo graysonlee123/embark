@@ -16,11 +16,13 @@ export function Search() {
   function handleKeyDown(e: KeyboardEvent) {
     if (e.key === '/') {
       const search = document.getElementById('search') as HTMLInputElement
-      search.focus()
+      const focus = document.activeElement
+      const body = document.body
 
-      /** If the user is focusing on a differnet element, prevent input. */
-      if (document.activeElement !== e.target) {
+      /** If `null` or body is found for focus, go ahead and focus the input. */
+      if (null === focus || body === focus) {
         e.preventDefault()
+        search.focus()
       }
     }
   }
@@ -33,7 +35,7 @@ export function Search() {
     >
       <label htmlFor="search">
         <small>
-          Search by typing <code>/</code>
+          Search Google by typing <code>/</code>
         </small>
       </label>
       <input
