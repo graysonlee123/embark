@@ -6,16 +6,15 @@ import { Header } from '@components/Header'
 import { Recents } from '@components/Recents'
 import { Grid } from '@components/Grid'
 import { Group } from '@components/Group'
+import { isEmbarkData } from '@scripts/validation'
 import fsPromises from 'fs/promises'
 import path from 'path'
 
 interface HomeProps {
-  bookmarks: EmbarkData
+  data: EmbarkData
 }
 
-export default function Home({ bookmarks }: HomeProps) {
-  const { groups } = bookmarks
-
+export default function Home({ data }: HomeProps) {
   return (
     <>
       <Head>
@@ -44,12 +43,20 @@ export default function Home({ bookmarks }: HomeProps) {
       </Head>
       <Container>
         <Header />
-        <Recents />
-        <Grid>
-          {groups.map(({ name, items, icon }) => (
-            <Group name={name} items={items} icon={icon} key={name} />
-          ))}
-        </Grid>
+        {isEmbarkData(data) ? (
+          <>
+            <Recents />
+            <Grid>
+              {data.groups.map(({ name, items, icon }) => (
+                <Group name={name} items={items} icon={icon} key={name} />
+              ))}
+            </Grid>
+          </>
+        ) : (
+          <p>
+            Sorry, the <code>bookmarks.json</code> file is missing or invalid.
+          </p>
+        )}
       </Container>
       <Script
         src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -61,15 +68,31 @@ export default function Home({ bookmarks }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const cwd: string = process.cwd()
-  const filePath: string = path.join(cwd, 'data/bookmarks.json')
-  const json = await fsPromises.readFile(filePath)
-  const bookmarks: EmbarkData = await JSON.parse(json.toString())
+  const revalidate = 10
 
-  return {
-    props: {
-      bookmarks,
-    },
-    revalidate: 10,
+  try {
+    const cwd = process.cwd()
+    const filePath = path.join(cwd, 'data/bookmarks.json')
+    const json = await fsPromises.readFile(filePath)
+    const data: unknown = await JSON.parse(json.toString())
+
+    return {
+      props: {
+        data,
+      },
+      revalidate,
+    }
+  } catch (error) {
+    console.warn(
+      Date.now(),
+      'There was an error grabbing the `bookmarks.json` file.'
+    )
+
+    return {
+      props: {
+        data: null,
+      },
+      revalidate,
+    }
   }
 }
