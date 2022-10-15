@@ -84,7 +84,7 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   } catch (error) {
     console.warn(
-      Date.now(),
+      new Date(),
       'There was an error grabbing the `bookmarks.json` file.'
     )
 
